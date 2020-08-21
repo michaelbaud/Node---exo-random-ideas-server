@@ -1,7 +1,7 @@
 const express = require('express')
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
-const routerIdeas = require('./routes/ideas')
+const ideasRouter = require('./routes/ideas')
 
 const PORT = process.env.PORT || 5000
 const app = express()
@@ -12,7 +12,7 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.use('/api', routerIdeas)
+app.use('/api', ideasRouter)
 
 app.listen(PORT, () => {
     console.log(`Server is running on port : ${PORT}`)
